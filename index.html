@@ -1,0 +1,463 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<title>小小工程師</title>
+<meta name="author" content="Erica Chang">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta property="og:site_name" content="小小工程師"/>
+
+
+<meta property="og:image" content="undefined"/>
+
+
+<link href="/favicon.ico" rel="icon">
+<link rel="alternate" href="http://ericachang.github.io//atom.xml" title="小小工程師" type="application/atom+xml">
+<link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>
+(function (window, document, undefined) {
+    $(document).ready(function() {
+        $('#sidebar').delay(400).animate({ width: '285px' }, 500, function() {
+            $('.personal-info').css({display: 'table'}).hide().fadeIn(500);
+        });
+        $('article a[href^="http"]').each(function () {
+            $(this).attr('target', '_blank');
+        });
+    });
+})(this, document);
+</script>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-41043675-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+
+<body>
+    <header id="header" class="inner">
+        <!-- <div class="alignleft">
+  <h1><a href="/">小小工程師</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+ --><!-- <nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+ -->
+    </header>
+    <div id="content" class="inner">
+        <div id="main-col" class="alignright">
+            <div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon depth"></div>
+        <time class="depth" datetime="2013-07-02T08:06:33.000Z"><a href="/2013/07/02/sky-step-by-step/">7月 2 2013</a></time>
+      
+      
+  
+    <h1 class="title depth"><a href="/2013/07/02/sky-step-by-step/">SKY Step by Step</a></h1>
+  
+
+    </header>
+    <div class="entry depth">
+      
+        <p>這是受保護的文章，請輸入密碼：</p>
+<p><input type="password" id="pwd"> <input type="button" id="subtn" value="submit"></p>
+<p><div id="skycontent">
+</div></p>
+<script src="/javascript/sky_step_by_step.js"></script>
+      
+    </div>
+    <footer>
+      
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon depth"></div>
+        <time class="depth" datetime="2013-07-01T09:02:00.000Z"><a href="/2013/07/01/jsonp_and_cors/">7月 1 2013</a></time>
+      
+      
+  
+    <h1 class="title depth"><a href="/2013/07/01/jsonp_and_cors/">利用JSONP/ CORS實現Cross-Origin Request</a></h1>
+  
+
+    </header>
+    <div class="entry depth">
+      
+        <p>目前跨域請求常見的做法有兩種，在這裡分別用JSONP和CORS來做實現。
+- JSONP：利用&lt;script&gt; src可以cross domain獲取資源的特性來做實現，通常會帶一個callback的參數過去供server端呼叫。
+這是jQuery的做法，利用$.ajax去動態生成一個&lt;script&gt; tag作實現。</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">jsonpCallback</span><span class="params">(data)</span> {</span> <span class="comment">// 需要public出來，不然會呼叫不到！</span>
+    console.log(data);
+}
+<span class="function"><span class="keyword">function</span> <span class="title">remote</span><span class="params">()</span> {</span>
+    $.ajax({
+        url: <span class="string">"http://demosite2013.herokuapp.com/exercise/crossDomain/jsonp.php"</span>,
+        dataType: <span class="string">"jsonp"</span>,
+        jsonpCallback: <span class="string">"jsonpCallback"</span>,
+        success: <span class="keyword">function</span>(data) {
+            console.log(<span class="string">"success: "</span> + data);
+        }
+    });
+}
+
+jQuery(document).ready(<span class="keyword">function</span>(){
+    remote();
+});
+</pre></td></tr></table></figure>
+
+<p>也可以利用&lt;script&gt; tag直接呼叫：</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"http://demosite2013.herokuapp.com/exercise/crossDomain/jsonp.php?callback=jsonpCallback"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span>
+</pre></td></tr></table></figure>
+
+<p><a href="http://demosite2013.herokuapp.com/exercise/crossDomain/jsonp.php">Server端</a>的寫法：</p>
+<figure class="highlight lang-php"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="preprocessor">&lt;?php</span> header(<span class="string">'content-type: application/json; charset=utf-8'</span>);
+    <span class="variable">$data</span> = <span class="string">"這是Server回傳資料！"</span>;
+    <span class="keyword">echo</span> <span class="variable">$_GET</span>[<span class="string">'callback'</span>].<span class="string">'('</span>.json_encode(<span class="variable">$data</span>).<span class="string">')'</span>;
+<span class="preprocessor">?&gt;</span>
+</pre></td></tr></table></figure>
+
+<p>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2013/07/01/jsonp_and_cors/#more" class="more-link">Read More</a>
+          </div>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon depth"></div>
+        <time class="depth" datetime="2013-06-27T10:20:34.000Z"><a href="/2013/06/27/query-gist-plugin/">6月 27 2013</a></time>
+      
+      
+  
+    <h1 class="title depth"><a href="/2013/06/27/query-gist-plugin/">jQueryPlugin: query Gist</a></h1>
+  
+
+    </header>
+    <div class="entry depth">
+      
+        <p>之前看完<a href="https://tutsplus.com/course/30-days-to-learn-jquery/">30 Days to Learn jQuery</a>後一直想寫個比較完整的jQuery Plugin，最近寫了個自娛娛人的練習，主要用來查詢自己的Gist，查詢關鍵字的部分是對Gist檔名模糊查詢，使用範例：<a href="http://demosite2013.herokuapp.com/exercise/gist/gist.html">Query Gist</a>
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2013/06/27/query-gist-plugin/#more" class="more-link">Read More</a>
+          </div>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon depth"></div>
+        <time class="depth" datetime="2013-06-24T05:19:42.000Z"><a href="/2013/06/24/refresh-images/">6月 24 2013</a></time>
+      
+      
+  
+    <h1 class="title depth"><a href="/2013/06/24/refresh-images/">定時更新圖片</a></h1>
+  
+
+    </header>
+    <div class="entry depth">
+      
+        <p>這是一即時影像更新的實作，利用<a href="http://longdon.hopto.org/">龍洞即時影像圖片來源</a>，每三秒更新一次圖片。</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">Camera</span><span class="params">(img)</span> {</span>
+    <span class="keyword">this</span>.img = img; <span class="comment">// 圖片來源</span>
+}
+Camera.prototype = {
+    refresh: <span class="keyword">function</span>() {
+        <span class="keyword">var</span> uniq = Math.random();
+        $(<span class="string">'#cam'</span>).attr(<span class="string">'src'</span>, <span class="keyword">this</span>.img + <span class="string">'?uniq='</span> + uniq);
+    },
+    loadImg: <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+        <span class="keyword">var</span> self = <span class="keyword">this</span>;
+        $(<span class="string">'#cam'</span>).load(<span class="keyword">function</span>() { <span class="comment">// 註冊onload事件，當圖片載完3秒後觸發refresh事件</span>
+            setTimeout(<span class="keyword">function</span>() { self.refresh.call(self); }, <span class="number">3000</span>);
+        });
+    }
+};
+</pre></td></tr></table></figure>
+
+<p>請參考：<a href="http://demosite2013.herokuapp.com/exercise/weather/camera.html">實作範例</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon depth"></div>
+        <time class="depth" datetime="2013-06-20T05:55:19.000Z"><a href="/2013/06/20/deploy-static-page-on-heroku/">6月 20 2013</a></time>
+      
+      
+  
+    <h1 class="title depth"><a href="/2013/06/20/deploy-static-page-on-heroku/">在Heroku架設靜態網站</a></h1>
+  
+
+    </header>
+    <div class="entry depth">
+      
+        <p>想在Heroku架設一個靜態網站？
+為了這件事特地寫個應用實在麻煩，最簡單的做法是將index.html更名為_index.html(或其他類似的名字)，並新增一個index.php內容如下：</p>
+<figure class="highlight lang-php"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="preprocessor">&lt;?php</span>
+    <span class="keyword">include_once</span>(<span class="string">"_index.html"</span>);
+<span class="preprocessor">?&gt;</span>
+</pre></td></tr></table></figure>
+
+<p>部署步驟如下：
+1.為網站建立一個專案：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="title">mkdir</span> heroku
+<span class="title">cd</span> heroku
+</pre></td></tr></table></figure>
+
+<p>2.建立index.php，並指向靜態網站首頁。
+3.推送到Heroku上：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="title">git</span> init
+<span class="title">git</span> add .
+<span class="title">heroku</span> create &lt;appName&gt;
+<span class="title">git</span> commit -m <span class="string">"initial commit"</span>
+<span class="title">git</span> push heroku master
+</pre></td></tr></table></figure>
+
+<p>4.打開網站確認：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="title">heroku</span> open
+</pre></td></tr></table></figure>
+
+<p>部署完成囉！
+--
+題外話，有試著偷渡把index.html改成index.jsp，想當然是失敗了......push時報錯：! Push rejected, no Cedar-supported app detected</p>
+
+      
+    </div>
+    <footer>
+      
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+<nav id="pagination">
+  
+  
+    <a href="/page/2/" class="alignright next">下一頁</a>
+  
+  <div class="clearfix"></div>
+</nav></div>
+        </div>
+        <aside id="sidebar" class="alignleft">
+            <div class="personal-info">
+    <figure>
+        
+            <a href="/">
+                <img class="personal-photo" src="https://lh6.googleusercontent.com/-rkYyxhjDtdw/UZXcNbMr0bI/AAAAAAAAA2I/aCEu400McVg/s512/314436_618297458184836_716646749_n.jpg" alt="Erica Chang">
+            </a>
+        
+        <figcaption>
+            <h3 class=>Erica Chang</h3>
+            <p>Where there is a will there is a way</p>
+        </figcaption>
+    </figure>
+    <section class="widget">
+        
+          <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜尋">
+    <input type="hidden" name="q" value="site:ericachang.github.io/">
+  </form>
+</div>
+        
+          
+<div class="widget tag">
+<!--  <h3 class="title">分類</h3> -->
+  <ul class="entry">
+      
+      <li><a href="/categories/前端研究/">前端研究</a><small>5</small></li>
+      
+      <li><a href="/categories/未分類/">未分類</a><small>3</small></li>
+      
+      <li><a href="/categories/版本控制/">版本控制</a><small>1</small></li>
+      
+  </ul>
+</div>
+
+        
+    </section>
+    <section class="social">
+        
+        
+        
+            <a target="_blank" class="icon github depth" href="http://github.com/EricaChang"></a>
+        
+        
+            <a target="_blank" class="icon email depth" href="mailto:taco1009@gmail.com"></a>
+        
+        <a target="_blank" class="icon rss depth" href="http://ericachang.github.io//atom.xml"></a>
+    </section>
+</div>
+
+        </aside>
+        <div class="clearfix"></div>
+    </div>
+    <footer id="footer" class="inner">
+        <div class="alignright depth">
+    
+        &copy; - 2013 Erica Chang
+    
+</div>
+<div class="clearfix"></div>
+    </footer>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'littleprogramer';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

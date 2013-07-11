@@ -1,0 +1,366 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<title>第 2 頁 | 小小工程師</title>
+<meta name="author" content="Erica Chang">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta property="og:site_name" content="小小工程師"/>
+
+
+<meta property="og:image" content="undefined"/>
+
+
+<link href="/favicon.ico" rel="icon">
+<link rel="alternate" href="http://ericachang.github.io//atom.xml" title="小小工程師" type="application/atom+xml">
+<link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>
+(function (window, document, undefined) {
+    $(document).ready(function() {
+        $('#sidebar').delay(400).animate({ width: '285px' }, 500, function() {
+            $('.personal-info').css({display: 'table'}).hide().fadeIn(500);
+        });
+        $('article a[href^="http"]').each(function () {
+            $(this).attr('target', '_blank');
+        });
+    });
+})(this, document);
+</script>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-41043675-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+
+<body>
+    <header id="header" class="inner">
+        <!-- <div class="alignleft">
+  <h1><a href="/">小小工程師</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+ --><!-- <nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+ -->
+    </header>
+    <div id="content" class="inner">
+        <div id="main-col" class="alignright">
+            <div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon depth"></div>
+        <time class="depth" datetime="2013-06-06T04:10:05.000Z"><a href="/2013/06/06/mac-setup/">6月 6 2013</a></time>
+      
+      
+  
+    <h1 class="title depth"><a href="/2013/06/06/mac-setup/">Mac實用工具</a></h1>
+  
+
+    </header>
+    <div class="entry depth">
+      
+        <p>最近從Ubuntu換到Mac，記錄一下一些實用的工具：</p>
+<hr>
+<ul>
+<li><a href="http://www.sublimetext.com/2">Sublime Text 2</a>: 好用的文字編輯器，拿來寫前端網頁很方便，輕量又高效。</li>
+<li><a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox</a>: 虛擬電腦。</li>
+<li><a href="http://www.libreoffice.org/download">LibreOffice</a>: 文書軟體。</li>
+<li><a href="http://www.zsh.org/">zsh</a>: 好用的shell。
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2013/06/06/mac-setup/#more" class="more-link">Read More</a>
+          </div>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon depth"></div>
+        <time class="depth" datetime="2013-05-29T07:18:26.000Z"><a href="/2013/05/29/jquery-plugin-dev/">5月 29 2013</a></time>
+      
+      
+  
+    <h1 class="title depth"><a href="/2013/05/29/jquery-plugin-dev/">jQuery: Head First Into Plugin Development</a></h1>
+  
+
+    </header>
+    <div class="entry depth">
+      
+        <p><a href="https://tutsplus.com/course/30-days-to-learn-jquery/">30 Days to Learn jQuery</a>真的是很不錯的基礎課程。
+最近常被問到有沒有寫過jQuery的plugin，有興趣的人特別要看看<a href="https://tutsplus.com/lesson/head-first-into-plugin-development/">Head First Into Plugin Development</a>這集，在這裡簡單地整理出影片中的一些要點：
+1. 利用self invoking function包覆plugin的code去確保$符號表示jQuery：</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>(<span class="function"><span class="keyword">function</span> <span class="params">($, window, document, undefined)</span> {</span>
+    <span class="comment">// code here...</span>
+})(jQuery, window, document);
+</pre></td></tr></table></figure>
+
+<p>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2013/05/29/jquery-plugin-dev/#more" class="more-link">Read More</a>
+          </div>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon depth"></div>
+        <time class="depth" datetime="2013-05-20T06:32:28.000Z"><a href="/2013/05/20/about-hexo/">5月 20 2013</a></time>
+      
+      
+  
+    <h1 class="title depth"><a href="/2013/05/20/about-hexo/">關於Hexo</a></h1>
+  
+
+    </header>
+    <div class="entry depth">
+      
+        <p>一開始是用Octopress架網誌，但在找theme時看到Hexo這個好東西就馬上遷過去了。
+原因很簡單：</p>
+<ol>
+<li>node.js產生靜態網頁速度很快</li>
+<li>hexo算是基於octopress的架構去發展，可以說是無痛轉移</li>
+<li>支援GitHub, Heroku</li>
+</ol>
+<p>再說比起Ruby，javascript對我來說方便調整多了，一整個神清氣爽。
+--
+<a href="https://github.com/tommy351/hexo">Hexo專案</a> (是台灣人開發的)
+<a href="http://zespia.tw/hexo/zh-TW/">Hexo說明文件</a>
+網誌用到的Plugins：<a href="https://github.com/tommy351/hexo-plugins/tree/master/generator/feed">RSS</a>, <a href="https://github.com/tommy351/hexo-plugins/tree/master/generator/sitemap">Sitemap</a>
+主題：<a href="https://github.com/thiagopnts/hexo-persona-dark">Persona Dark</a>
+--
+網站的網頁用<a href="http://embeddedjs.com/">EJS</a>樣板文件產生，CSS以<a href="http://learnboost.github.io/stylus/docs/executable.html">Stylus</a>維護，通常只要更改這些檔案就可以了。
+舉例來說如果要將文章中的超連結另開視窗，又不想在md檔加上HTML的tag，可以修改<code>head.ejs</code>加入以下script：</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre>&lt;script&gt;
+(<span class="function"><span class="keyword">function</span> <span class="params">(window, document, undefined)</span> {</span>
+    $(document).ready(<span class="keyword">function</span>() {
+        $(<span class="string">'article a[href^="http"]'</span>).each(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+            $(<span class="keyword">this</span>).attr(<span class="string">'target'</span>, <span class="string">'_blank'</span>);
+        });
+    });
+})(<span class="keyword">this</span>, document);
+<span class="xml"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span>
+</pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer>
+      
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon depth"></div>
+        <time class="depth" datetime="2013-05-17T03:21:39.000Z"><a href="/2013/05/17/git-with-dropbox/">5月 17 2013</a></time>
+      
+      
+  
+    <h1 class="title depth"><a href="/2013/05/17/git-with-dropbox/">如何利用Dropbox將專案納入GIT版本控制</a></h1>
+  
+
+    </header>
+    <div class="entry depth">
+      
+        <ol>
+<li>switch to your working directory</li>
+<li>git init</li>
+<li>git add .</li>
+<li>use &#39;git status&#39; to confirm the status</li>
+<li>git commit -m &quot;init&quot;</li>
+<li>use &#39;git status&#39; to confirm the status</li>
+<li>switch to the dropbox folder, ex: cd ~/Dropbox/repos</li>
+<li>make a remote repo: mkdir <em>_repositoryName</em>.git</li>
+<li>git init --bare <em>_repositoryName</em>.git</li>
+<li>switch to your working directory</li>
+<li>git remote add origin <em>_repositoryPath</em>, ex: /home/erica/Dropbox/repos/<em>repositoryName</em>.git</li>
+<li>git push origin master</li>
+</ol>
+<p>and if you want to checkout the project: <code>git clone _repositoryPath _projectname</code></p>
+
+      
+    </div>
+    <footer>
+      
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+<nav id="pagination">
+  
+    <a href="/" class="alignleft prev">上一頁</a>
+  
+  
+  <div class="clearfix"></div>
+</nav></div>
+        </div>
+        <aside id="sidebar" class="alignleft">
+            <div class="personal-info">
+    <figure>
+        
+            <a href="/">
+                <img class="personal-photo" src="https://lh6.googleusercontent.com/-rkYyxhjDtdw/UZXcNbMr0bI/AAAAAAAAA2I/aCEu400McVg/s512/314436_618297458184836_716646749_n.jpg" alt="Erica Chang">
+            </a>
+        
+        <figcaption>
+            <h3 class=>Erica Chang</h3>
+            <p>Where there is a will there is a way</p>
+        </figcaption>
+    </figure>
+    <section class="widget">
+        
+          <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜尋">
+    <input type="hidden" name="q" value="site:ericachang.github.io/">
+  </form>
+</div>
+        
+          
+<div class="widget tag">
+<!--  <h3 class="title">分類</h3> -->
+  <ul class="entry">
+      
+      <li><a href="/categories/前端研究/">前端研究</a><small>5</small></li>
+      
+      <li><a href="/categories/未分類/">未分類</a><small>3</small></li>
+      
+      <li><a href="/categories/版本控制/">版本控制</a><small>1</small></li>
+      
+  </ul>
+</div>
+
+        
+    </section>
+    <section class="social">
+        
+        
+        
+            <a target="_blank" class="icon github depth" href="http://github.com/EricaChang"></a>
+        
+        
+            <a target="_blank" class="icon email depth" href="mailto:taco1009@gmail.com"></a>
+        
+        <a target="_blank" class="icon rss depth" href="http://ericachang.github.io//atom.xml"></a>
+    </section>
+</div>
+
+        </aside>
+        <div class="clearfix"></div>
+    </div>
+    <footer id="footer" class="inner">
+        <div class="alignright depth">
+    
+        &copy; - 2013 Erica Chang
+    
+</div>
+<div class="clearfix"></div>
+    </footer>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'littleprogramer';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

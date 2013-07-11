@@ -1,0 +1,404 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<title>利用JSONP/ CORS實現Cross-Origin Request | 小小工程師</title>
+<meta name="author" content="Erica Chang">
+
+<meta name="description" content="目前跨域請求常見的做法有兩種，在這裡分別用JSONP和CORS來做實現。
+- JSONP：利用&lt;script&gt; src可以cross domain獲取資源的特性來做實現，通常會帶一個callback的參數過去供server端呼叫。
+這是jQuery的做法，利用$.ajax去動態生成一個&lt;script&gt; tag作實現。
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+function jsonpCallback(data) { // 需要public出來，不然會呼叫不到！
+    console.log(data);
+}
+function remote() {
+    $.ajax({
+        url: &quot;http://demosite2013.herokuapp.com/exercise/crossDomain/jsonp.php&quot;,
+        dataType: &quot;jsonp&quot;,
+        jsonpCallback: &quot;jsonpCallback&quot;,
+        success: function(data) {
+            console.log(&quot;success: &quot; + data);
+        }
+    });
+}
+
+jQuery(document).ready(function(){
+    remote();
+});
+
+
+也可以利用&lt;script&gt; tag直接呼叫：
+1
+&lt;script type=&quot;text/javascript&quot; src=&quot;http://demosite2013.herokuapp.com/exercise/crossDomain/jsonp.php?callback=jsonpCallback&quot;&gt;&lt;/script&gt;
+
+
+Server端的寫法：
+1
+2
+3
+4
+&lt;?php header('content-type: application/json; charset=utf-8');
+    $data = &quot;這是Server回傳資料！&quot;;
+    echo $_GET['callback'].'('.json_encode($data).')';
+?&gt;">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<meta property="og:title" content="利用JSONP/ CORS實現Cross-Origin Request"/>
+<meta property="og:site_name" content="小小工程師"/>
+
+
+<meta property="og:image" content="undefined"/>
+
+
+<link href="/favicon.ico" rel="icon">
+<link rel="alternate" href="http://ericachang.github.io//atom.xml" title="小小工程師" type="application/atom+xml">
+<link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>
+(function (window, document, undefined) {
+    $(document).ready(function() {
+        $('#sidebar').delay(400).animate({ width: '285px' }, 500, function() {
+            $('.personal-info').css({display: 'table'}).hide().fadeIn(500);
+        });
+        $('article a[href^="http"]').each(function () {
+            $(this).attr('target', '_blank');
+        });
+    });
+})(this, document);
+</script>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-41043675-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+
+<body>
+    <header id="header" class="inner">
+        <!-- <div class="alignleft">
+  <h1><a href="/">小小工程師</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+ --><!-- <nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+ -->
+    </header>
+    <div id="content" class="inner">
+        <div id="main-col" class="alignright">
+            <div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon depth"></div>
+        <time class="depth" datetime="2013-07-01T09:02:00.000Z"><a href="/2013/07/01/jsonp_and_cors/">7月 1 2013</a></time>
+      
+      
+  
+    <h1 class="depth title">利用JSONP/ CORS實現Cross-Origin Request</h1>
+  
+
+    </header>
+    <div class="entry depth">
+      
+        <p>目前跨域請求常見的做法有兩種，在這裡分別用JSONP和CORS來做實現。
+- JSONP：利用&lt;script&gt; src可以cross domain獲取資源的特性來做實現，通常會帶一個callback的參數過去供server端呼叫。
+這是jQuery的做法，利用$.ajax去動態生成一個&lt;script&gt; tag作實現。</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">jsonpCallback</span><span class="params">(data)</span> {</span> <span class="comment">// 需要public出來，不然會呼叫不到！</span>
+    console.log(data);
+}
+<span class="function"><span class="keyword">function</span> <span class="title">remote</span><span class="params">()</span> {</span>
+    $.ajax({
+        url: <span class="string">"http://demosite2013.herokuapp.com/exercise/crossDomain/jsonp.php"</span>,
+        dataType: <span class="string">"jsonp"</span>,
+        jsonpCallback: <span class="string">"jsonpCallback"</span>,
+        success: <span class="keyword">function</span>(data) {
+            console.log(<span class="string">"success: "</span> + data);
+        }
+    });
+}
+
+jQuery(document).ready(<span class="keyword">function</span>(){
+    remote();
+});
+</pre></td></tr></table></figure>
+
+<p>也可以利用&lt;script&gt; tag直接呼叫：</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"http://demosite2013.herokuapp.com/exercise/crossDomain/jsonp.php?callback=jsonpCallback"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span>
+</pre></td></tr></table></figure>
+
+<p><a href="http://demosite2013.herokuapp.com/exercise/crossDomain/jsonp.php">Server端</a>的寫法：</p>
+<figure class="highlight lang-php"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="preprocessor">&lt;?php</span> header(<span class="string">'content-type: application/json; charset=utf-8'</span>);
+    <span class="variable">$data</span> = <span class="string">"這是Server回傳資料！"</span>;
+    <span class="keyword">echo</span> <span class="variable">$_GET</span>[<span class="string">'callback'</span>].<span class="string">'('</span>.json_encode(<span class="variable">$data</span>).<span class="string">')'</span>;
+<span class="preprocessor">?&gt;</span>
+</pre></td></tr></table></figure>
+
+<p><a name="more"></a>
+- <a href="https://developer.mozilla.org/en-US/docs/HTTP/Access_control_CORS?redirectlocale=en-US&amp;redirectslug=HTTP_access_control">CORS</a>:最近常見也是W3C推薦的做法。
+Client端只要依照一般的ajax request要求即可，這裡用jQuery來實現。</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre> (<span class="function"><span class="keyword">function</span> <span class="params">(window, document, undefined)</span> {</span>
+    <span class="function"><span class="keyword">function</span> <span class="title">remote</span><span class="params">()</span> {</span>
+        $.ajax({
+            url: <span class="string">"http://demosite2013.herokuapp.com/exercise/crossDomain/cors.php"</span>,
+            success: <span class="keyword">function</span>(data) {
+                console.log(<span class="string">"success: "</span> + data);
+            }
+        });
+    }
+
+    jQuery(document).ready(<span class="keyword">function</span>(){
+        remote();
+    });
+})(window, document);
+</pre></td></tr></table></figure>
+
+<p><a href="http://demosite2013.herokuapp.com/exercise/crossDomain/cors.php">Server端</a>的寫法比較要考慮是否要接受/拒絕cross domain requests：</p>
+<figure class="highlight lang-php"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="code"><pre><span class="preprocessor">&lt;?php</span> header(<span class="string">'content-type: application/json; charset=utf-8'</span>);
+    <span class="keyword">if</span> (<span class="variable">$_SERVER</span>[<span class="string">'REQUEST_METHOD'</span>] == <span class="string">"OPTIONS"</span>) {
+        <span class="comment">// Tell the Client we support invocations and that this preflight holds good for only 20 days</span>
+        header(<span class="string">'Access-Control-Allow-Origin: *'</span>);
+        header(<span class="string">'Access-Control-Allow-Methods: POST, GET, OPTIONS'</span>);
+        header(<span class="string">'Access-Control-Max-Age: 1728000'</span>);
+        header(<span class="string">"Content-Length: 0"</span>);
+        header(<span class="string">"Content-Type: application/json"</span>);
+    } <span class="keyword">elseif</span>(<span class="variable">$_SERVER</span>[<span class="string">'REQUEST_METHOD'</span>] == <span class="string">"GET"</span> || <span class="string">"POST"</span>) {
+        header(<span class="string">'Access-Control-Allow-Origin: *'</span>);
+        header(<span class="string">'Content-Type: application/json'</span>);
+        <span class="variable">$data</span> = <span class="string">"這是Server回傳資料！"</span>;
+        <span class="keyword">echo</span> json_encode(<span class="variable">$data</span>);
+    } <span class="keyword">else</span> {
+        <span class="keyword">die</span>(<span class="string">"No Other Methods Allowed"</span>);
+    }
+<span class="preprocessor">?&gt;</span>
+</pre></td></tr></table></figure>
+
+<p>如果沒有<a href="http://caniuse.com/#search=cors">瀏覽器相容性</a>的要求，建議是以CORS實現，彈性比較大也可以發post request；如果使用JSONP的話只能處理get request，而且也不算是Ajax的實現。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/前端研究/">前端研究</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/javascript/">javascript</a>, <a href="/tags/jquery/">jquery</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</div>
+        </div>
+        <aside id="sidebar" class="alignleft">
+            <div class="personal-info">
+    <figure>
+        
+            <a href="/">
+                <img class="personal-photo" src="https://lh6.googleusercontent.com/-rkYyxhjDtdw/UZXcNbMr0bI/AAAAAAAAA2I/aCEu400McVg/s512/314436_618297458184836_716646749_n.jpg" alt="Erica Chang">
+            </a>
+        
+        <figcaption>
+            <h3 class=>Erica Chang</h3>
+            <p>Where there is a will there is a way</p>
+        </figcaption>
+    </figure>
+    <section class="widget">
+        
+          <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜尋">
+    <input type="hidden" name="q" value="site:ericachang.github.io/">
+  </form>
+</div>
+        
+          
+<div class="widget tag">
+<!--  <h3 class="title">分類</h3> -->
+  <ul class="entry">
+      
+      <li><a href="/categories/前端研究/">前端研究</a><small>5</small></li>
+      
+      <li><a href="/categories/未分類/">未分類</a><small>3</small></li>
+      
+      <li><a href="/categories/版本控制/">版本控制</a><small>1</small></li>
+      
+  </ul>
+</div>
+
+        
+    </section>
+    <section class="social">
+        
+        
+        
+            <a target="_blank" class="icon github depth" href="http://github.com/EricaChang"></a>
+        
+        
+            <a target="_blank" class="icon email depth" href="mailto:taco1009@gmail.com"></a>
+        
+        <a target="_blank" class="icon rss depth" href="http://ericachang.github.io//atom.xml"></a>
+    </section>
+</div>
+
+        </aside>
+        <div class="clearfix"></div>
+    </div>
+    <footer id="footer" class="inner">
+        <div class="alignright depth">
+    
+        &copy; - 2013 Erica Chang
+    
+</div>
+<div class="clearfix"></div>
+    </footer>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'littleprogramer';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

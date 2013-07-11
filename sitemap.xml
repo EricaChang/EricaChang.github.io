@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://ericachang.github.io//2013/07/02/sky-step-by-step/</loc>
+    <lastmod>2013-07-11T05:56:20.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://ericachang.github.io//2013/07/01/jsonp_and_cors/</loc>
     <lastmod>2013-07-11T05:14:18.000Z</lastmod>
   </url>
@@ -31,9 +35,5 @@
   <url>
     <loc>http://ericachang.github.io//2013/05/20/about-hexo/</loc>
     <lastmod>2013-07-11T05:06:28.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://ericachang.github.io//2013/07/02/sky-step-by-step/</loc>
-    <lastmod>2013-07-11T05:00:10.000Z</lastmod>
   </url>
 </urlset>

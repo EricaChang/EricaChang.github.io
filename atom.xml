@@ -3,7 +3,7 @@
   <title><![CDATA[小小工程師]]></title>
   <link href="http://ericachang.github.io//atom.xml" rel="self"/>
   <link href="http://ericachang.github.io/"/>
-  <updated>2013-07-11T05:08:42.730Z</updated>
+  <updated>2013-07-11T05:14:26.552Z</updated>
   <id>http://ericachang.github.io//</id>
   <author>
     <name><![CDATA[Erica Chang]]></name>
@@ -28,9 +28,8 @@
     <link href="http://ericachang.github.io//2013/07/01/jsonp_and_cors/"/>
     <id>http://ericachang.github.io//2013/07/01/jsonp_and_cors/</id>
     <published>2013-07-01T09:02:00.000Z</published>
-    <updated>2013-07-11T05:07:58.000Z</updated>
-    <content type="html"><![CDATA[<p>目前跨域請求常見的做法有兩種，在這裡分別用JSONP和CORS來做實現。
-- JSONP：利用&lt;script&gt; src可以cross domain獲取資源的特性來做實現，通常會帶一個callback的參數過去供server端呼叫。
+    <updated>2013-07-11T05:14:18.000Z</updated>
+    <content type="html"><![CDATA[<p>目前跨域請求常見的做法有兩種，在這裡分別用JSONP和CORS來做實現。<br>- JSONP：利用&lt;script&gt; src可以cross domain獲取資源的特性來做實現，通常會帶一個callback的參數過去供server端呼叫。
 這是jQuery的做法，利用$.ajax去動態生成一個&lt;script&gt; tag作實現。</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2

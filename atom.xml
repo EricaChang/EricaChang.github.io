@@ -3,12 +3,26 @@
   <title><![CDATA[小小工程師]]></title>
   <link href="http://ericachang.github.io//atom.xml" rel="self"/>
   <link href="http://ericachang.github.io/"/>
-  <updated>2013-09-25T04:15:09.701Z</updated>
+  <updated>2013-12-03T12:31:07.144Z</updated>
   <id>http://ericachang.github.io//</id>
   <author>
     <name><![CDATA[Erica Chang]]></name>
   </author>
   <generator uri="http://zespia.tw/hexo">Hexo</generator>
+  <entry>
+    <title type="html"><![CDATA[CSS#1]]></title>
+    <link href="http://ericachang.github.io//2013/12/03/css1/"/>
+    <id>http://ericachang.github.io//2013/12/03/css1/</id>
+    <published>2013-12-03T12:17:28.000Z</published>
+    <updated>2013-12-03T12:29:51.000Z</updated>
+    <content type="html"><![CDATA[<p><a href="http://tympanus.net/codrops/2013/12/02/techniques-for-creating-textured-text">TECHNIQUES FOR CREATING TEXTURED TEXT</a></p>
+<p><a href="http://css-tricks.com/viewport-sized-typography/">Viewport Sized Typography</a></p>
+<p>not work in FF:
+<a href="http://css-demo.herokuapp.com/backgroundClip.html">CSS Exercise#1</a></p>
+]]></content>
+    <category scheme="http://ericachang.github.io//tags/css/" term="css"/>
+    <category scheme="http://ericachang.github.io//categories/前端研究/" term="前端研究"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[SKY Step by Step]]></title>
     <link href="http://ericachang.github.io//2013/07/02/sky-step-by-step/"/>

@@ -76,6 +76,76 @@
     <header>
       
         <div class="icon depth"></div>
+        <time class="depth" datetime="2013-06-20T05:55:19.000Z"><a href="/2013/06/20/deploy-static-page-on-heroku/">6月 20 2013</a></time>
+      
+      
+  
+    <h1 class="title depth"><a href="/2013/06/20/deploy-static-page-on-heroku/">在Heroku架設靜態網站</a></h1>
+  
+
+    </header>
+    <div class="entry depth">
+      
+        <p>想在Heroku架設一個靜態網站？
+為了這件事特地寫個應用實在麻煩，最簡單的做法是將index.html更名為_index.html(或其他類似的名字)，並新增一個index.php內容如下：</p>
+<figure class="highlight lang-php"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="preprocessor">&lt;?php</span>
+    <span class="keyword">include_once</span>(<span class="string">"_index.html"</span>);
+<span class="preprocessor">?&gt;</span>
+</pre></td></tr></table></figure>
+
+<p>部署步驟如下：
+1.為網站建立一個專案：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="title">mkdir</span> heroku
+<span class="title">cd</span> heroku
+</pre></td></tr></table></figure>
+
+<p>2.建立index.php，並指向靜態網站首頁。
+3.推送到Heroku上：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="title">git</span> init
+<span class="title">git</span> add .
+<span class="title">heroku</span> create &lt;appName&gt;
+<span class="title">git</span> commit -m <span class="string">"initial commit"</span>
+<span class="title">git</span> push heroku master
+</pre></td></tr></table></figure>
+
+<p>4.打開網站確認：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="title">heroku</span> open
+</pre></td></tr></table></figure>
+
+<p>部署完成囉！
+--
+題外話，有試著偷渡把index.html改成index.jsp，想當然是失敗了......push時報錯：! Push rejected, no Cedar-supported app detected</p>
+
+      
+    </div>
+    <footer>
+      
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon depth"></div>
         <time class="depth" datetime="2013-06-06T04:10:05.000Z"><a href="/2013/06/06/mac-setup/">6月 6 2013</a></time>
       
       
@@ -301,7 +371,7 @@
 <!--  <h3 class="title">分類</h3> -->
   <ul class="entry">
       
-      <li><a href="/categories/前端研究/">前端研究</a><small>5</small></li>
+      <li><a href="/categories/前端研究/">前端研究</a><small>6</small></li>
       
       <li><a href="/categories/未分類/">未分類</a><small>3</small></li>
       

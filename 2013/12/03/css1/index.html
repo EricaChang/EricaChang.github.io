@@ -3,35 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-<title>定時更新圖片 | 小小工程師</title>
+<title>CSS#1 | 小小工程師</title>
 <meta name="author" content="Erica Chang">
 
-<meta name="description" content="這是一即時影像更新的實作，利用龍洞即時影像圖片來源，每三秒更新一次圖片。
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-function Camera(img) {
-    this.img = img; // 圖片來源
-}
-Camera.prototype = {
-   ">
+<meta name="description" content="TECHNIQUES FOR CREATING TEXTURED TEXT
+Viewport Sized Typography
+not work in FF:
+CSS Exercise#1">
 
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-<meta property="og:title" content="定時更新圖片"/>
+<meta property="og:title" content="CSS#1"/>
 <meta property="og:site_name" content="小小工程師"/>
 
 
@@ -97,50 +80,20 @@ Camera.prototype = {
     <header>
       
         <div class="icon depth"></div>
-        <time class="depth" datetime="2013-06-24T05:19:42.000Z"><a href="/2013/06/24/refresh-images/">6月 24 2013</a></time>
+        <time class="depth" datetime="2013-12-03T12:17:28.000Z"><a href="/2013/12/03/css1/">12月 3 2013</a></time>
       
       
   
-    <h1 class="depth title">定時更新圖片</h1>
+    <h1 class="depth title">CSS#1</h1>
   
 
     </header>
     <div class="entry depth">
       
-        <p>這是一即時影像更新的實作，利用<a href="http://longdon.hopto.org/">龍洞即時影像圖片來源</a>，每三秒更新一次圖片。</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">Camera</span><span class="params">(img)</span> {</span>
-    <span class="keyword">this</span>.img = img; <span class="comment">// 圖片來源</span>
-}
-Camera.prototype = {
-    refresh: <span class="keyword">function</span>() {
-        <span class="keyword">var</span> uniq = Math.random();
-        $(<span class="string">'#cam'</span>).attr(<span class="string">'src'</span>, <span class="keyword">this</span>.img + <span class="string">'?uniq='</span> + uniq);
-    },
-    loadImg: <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
-        <span class="keyword">var</span> self = <span class="keyword">this</span>;
-        $(<span class="string">'#cam'</span>).load(<span class="keyword">function</span>() { <span class="comment">// 註冊onload事件，當圖片載完3秒後觸發refresh事件</span>
-            setTimeout(<span class="keyword">function</span>() { self.refresh.call(self); }, <span class="number">3000</span>);
-        });
-    }
-};
-</pre></td></tr></table></figure>
-
-<p>請參考：<a href="http://demosite2013.herokuapp.com/exercise/weather/camera.html">實作範例</a></p>
+        <p><a href="http://tympanus.net/codrops/2013/12/02/techniques-for-creating-textured-text">TECHNIQUES FOR CREATING TEXTURED TEXT</a></p>
+<p><a href="http://css-tricks.com/viewport-sized-typography/">Viewport Sized Typography</a></p>
+<p>not work in FF:
+<a href="http://css-demo.herokuapp.com/backgroundClip.html">CSS Exercise#1</a></p>
 
       
     </div>
@@ -155,7 +108,7 @@ Camera.prototype = {
         
   
   <div class="tags">
-    <a href="/tags/javascript/">javascript</a>
+    <a href="/tags/css/">css</a>
   </div>
 
         

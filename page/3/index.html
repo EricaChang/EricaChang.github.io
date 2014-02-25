@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-<title>彙整：2013/12 | 小小工程師</title>
+<title>第 3 頁 | 小小工程師</title>
 <meta name="author" content="Erica Chang">
 
 
@@ -70,31 +70,59 @@
     <div id="content" class="inner">
         <div id="main-col" class="alignright">
             <div id="wrapper">
-<h2 class="archive-title">2013/12</h2>
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon depth"></div>
+        <time class="depth" datetime="2013-05-17T03:21:39.000Z"><a href="/2013/05/17/git-with-dropbox/">5月 17 2013</a></time>
+      
+      
+  
+    <h1 class="title depth"><a href="/2013/05/17/git-with-dropbox/">如何利用Dropbox將專案納入GIT版本控制</a></h1>
+  
 
+    </header>
+    <div class="entry depth">
+      
+        <ol>
+<li>switch to your working directory</li>
+<li>git init</li>
+<li>git add .</li>
+<li>use &#39;git status&#39; to confirm the status</li>
+<li>git commit -m &quot;init&quot;</li>
+<li>use &#39;git status&#39; to confirm the status</li>
+<li>switch to the dropbox folder, ex: cd ~/Dropbox/repos</li>
+<li>make a remote repo: mkdir <em>_repositoryName</em>.git</li>
+<li>git init --bare <em>_repositoryName</em>.git</li>
+<li>switch to your working directory</li>
+<li>git remote add origin <em>_repositoryPath</em>, ex: /home/erica/Dropbox/repos/<em>repositoryName</em>.git</li>
+<li>git push origin master</li>
+</ol>
+<p>and if you want to checkout the project: <code>git clone _repositoryPath _projectname</code></p>
 
-
-    <div class="archive">
-        <article class="post">
-            <div class="post-content">
-                <header>
-                
-                    <a href="/2013/12/03/css1/">
-                        <div class="icon depth"></div>
-                    </a>
-                    <h2 class="depth title" >
-                        <a href="/2013/12/03/css1/">CSS#1</a>
-                    </h2>
-                
-                    <time class="time title depth" datetime="2013-12-03T12:17:28.000Z">
-                        <a href="/2013/12/03/css1/">12月 3 2013</a>
-                    </time>
-                </header>
-            </div>
-        </article>
+      
     </div>
+    <footer>
+      
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
 
-</div>
+
+
+
+<nav id="pagination">
+  
+    <a href="/page/2/" class="alignleft prev">上一頁</a>
+  
+  
+  <div class="clearfix"></div>
+</nav></div>
         </div>
         <aside id="sidebar" class="alignleft">
             <div class="personal-info">

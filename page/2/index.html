@@ -76,6 +76,70 @@
     <header>
       
         <div class="icon depth"></div>
+        <time class="depth" datetime="2013-06-24T05:19:42.000Z"><a href="/2013/06/24/refresh-images/">6月 24 2013</a></time>
+      
+      
+  
+    <h1 class="title depth"><a href="/2013/06/24/refresh-images/">定時更新圖片</a></h1>
+  
+
+    </header>
+    <div class="entry depth">
+      
+        <p>這是一即時影像更新的實作，利用<a href="http://longdon.hopto.org/">龍洞即時影像圖片來源</a>，每三秒更新一次圖片。</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">Camera</span><span class="params">(img)</span> {</span>
+    <span class="keyword">this</span>.img = img; <span class="comment">// 圖片來源</span>
+}
+Camera.prototype = {
+    refresh: <span class="keyword">function</span>() {
+        <span class="keyword">var</span> uniq = Math.random();
+        $(<span class="string">'#cam'</span>).attr(<span class="string">'src'</span>, <span class="keyword">this</span>.img + <span class="string">'?uniq='</span> + uniq);
+    },
+    loadImg: <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+        <span class="keyword">var</span> self = <span class="keyword">this</span>;
+        $(<span class="string">'#cam'</span>).load(<span class="keyword">function</span>() { <span class="comment">// 註冊onload事件，當圖片載完3秒後觸發refresh事件</span>
+            setTimeout(<span class="keyword">function</span>() { self.refresh.call(self); }, <span class="number">3000</span>);
+        });
+    }
+};
+</pre></td></tr></table></figure>
+
+<p>請參考：<a href="http://demosite2013.herokuapp.com/exercise/weather/camera.html">實作範例</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon depth"></div>
         <time class="depth" datetime="2013-06-20T05:55:19.000Z"><a href="/2013/06/20/deploy-static-page-on-heroku/">6月 20 2013</a></time>
       
       
@@ -290,56 +354,13 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon depth"></div>
-        <time class="depth" datetime="2013-05-17T03:21:39.000Z"><a href="/2013/05/17/git-with-dropbox/">5月 17 2013</a></time>
-      
-      
-  
-    <h1 class="title depth"><a href="/2013/05/17/git-with-dropbox/">如何利用Dropbox將專案納入GIT版本控制</a></h1>
-  
-
-    </header>
-    <div class="entry depth">
-      
-        <ol>
-<li>switch to your working directory</li>
-<li>git init</li>
-<li>git add .</li>
-<li>use &#39;git status&#39; to confirm the status</li>
-<li>git commit -m &quot;init&quot;</li>
-<li>use &#39;git status&#39; to confirm the status</li>
-<li>switch to the dropbox folder, ex: cd ~/Dropbox/repos</li>
-<li>make a remote repo: mkdir <em>_repositoryName</em>.git</li>
-<li>git init --bare <em>_repositoryName</em>.git</li>
-<li>switch to your working directory</li>
-<li>git remote add origin <em>_repositoryPath</em>, ex: /home/erica/Dropbox/repos/<em>repositoryName</em>.git</li>
-<li>git push origin master</li>
-</ol>
-<p>and if you want to checkout the project: <code>git clone _repositoryPath _projectname</code></p>
-
-      
-    </div>
-    <footer>
-      
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
 
 <nav id="pagination">
   
     <a href="/" class="alignleft prev">上一頁</a>
   
+  
+    <a href="/page/3/" class="alignright next">下一頁</a>
   
   <div class="clearfix"></div>
 </nav></div>
@@ -373,7 +394,7 @@
       
       <li><a href="/categories/前端研究/">前端研究</a><small>6</small></li>
       
-      <li><a href="/categories/未分類/">未分類</a><small>3</small></li>
+      <li><a href="/categories/未分類/">未分類</a><small>4</small></li>
       
       <li><a href="/categories/版本控制/">版本控制</a><small>1</small></li>
       
@@ -401,7 +422,7 @@
     <footer id="footer" class="inner">
         <div class="alignright depth">
     
-        &copy; - 2013 Erica Chang
+        &copy; - 2014 Erica Chang
     
 </div>
 <div class="clearfix"></div>

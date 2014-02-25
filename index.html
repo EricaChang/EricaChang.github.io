@@ -76,6 +76,51 @@
     <header>
       
         <div class="icon depth"></div>
+        <time class="depth" datetime="2014-02-24T09:20:25.000Z"><a href="/2014/02/24/about-sublime-text-2/">2月 24 2014</a></time>
+      
+      
+  
+    <h1 class="title depth"><a href="/2014/02/24/about-sublime-text-2/">Sublime Text 2</a></h1>
+  
+
+    </header>
+    <div class="entry depth">
+      
+        <p><a href="http://www.sublimetext.com/">Sublime Text 2</a>是目前覺得最好用的文字編輯器。(subl3雖然是beta，但也越來越多人使用了)</p>
+<p>跟Eclipse, Aptana比起來開發前端又簡潔又快，而且有相當多的第三方套件支援。tuts+有一系列的影片介紹：<a href="https://tutsplus.com/course/improve-workflow-in-sublime-text-2/">Perfect Workflow in Sublime Text 2</a>。
+Ubuntu安裝方式如下：</p>
+<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>sudo add-apt-repository ppa:webupd8team/sublime-text-2
+sudo apt-get update
+sudo apt-get install sublime-text
+</pre></td></tr></table></figure>
+
+<p>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2014/02/24/about-sublime-text-2/#more" class="more-link">Read More</a>
+          </div>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon depth"></div>
         <time class="depth" datetime="2013-12-03T12:17:28.000Z"><a href="/2013/12/03/css1/">12月 3 2013</a></time>
       
       
@@ -261,70 +306,6 @@ jQuery(document).ready(<span class="keyword">function</span>(){
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon depth"></div>
-        <time class="depth" datetime="2013-06-24T05:19:42.000Z"><a href="/2013/06/24/refresh-images/">6月 24 2013</a></time>
-      
-      
-  
-    <h1 class="title depth"><a href="/2013/06/24/refresh-images/">定時更新圖片</a></h1>
-  
-
-    </header>
-    <div class="entry depth">
-      
-        <p>這是一即時影像更新的實作，利用<a href="http://longdon.hopto.org/">龍洞即時影像圖片來源</a>，每三秒更新一次圖片。</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">Camera</span><span class="params">(img)</span> {</span>
-    <span class="keyword">this</span>.img = img; <span class="comment">// 圖片來源</span>
-}
-Camera.prototype = {
-    refresh: <span class="keyword">function</span>() {
-        <span class="keyword">var</span> uniq = Math.random();
-        $(<span class="string">'#cam'</span>).attr(<span class="string">'src'</span>, <span class="keyword">this</span>.img + <span class="string">'?uniq='</span> + uniq);
-    },
-    loadImg: <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
-        <span class="keyword">var</span> self = <span class="keyword">this</span>;
-        $(<span class="string">'#cam'</span>).load(<span class="keyword">function</span>() { <span class="comment">// 註冊onload事件，當圖片載完3秒後觸發refresh事件</span>
-            setTimeout(<span class="keyword">function</span>() { self.refresh.call(self); }, <span class="number">3000</span>);
-        });
-    }
-};
-</pre></td></tr></table></figure>
-
-<p>請參考：<a href="http://demosite2013.herokuapp.com/exercise/weather/camera.html">實作範例</a></p>
-
-      
-    </div>
-    <footer>
-      
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
 
 <nav id="pagination">
   
@@ -363,7 +344,7 @@ Camera.prototype = {
       
       <li><a href="/categories/前端研究/">前端研究</a><small>6</small></li>
       
-      <li><a href="/categories/未分類/">未分類</a><small>3</small></li>
+      <li><a href="/categories/未分類/">未分類</a><small>4</small></li>
       
       <li><a href="/categories/版本控制/">版本控制</a><small>1</small></li>
       
@@ -391,7 +372,7 @@ Camera.prototype = {
     <footer id="footer" class="inner">
         <div class="alignright depth">
     
-        &copy; - 2013 Erica Chang
+        &copy; - 2014 Erica Chang
     
 </div>
 <div class="clearfix"></div>

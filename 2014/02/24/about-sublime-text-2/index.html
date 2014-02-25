@@ -3,15 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-<title>SKY Step by Step | 小小工程師</title>
+<title>Sublime Text 2 | 小小工程師</title>
 <meta name="author" content="Erica Chang">
 
-<meta name="description" content="這是受保護的文章，請輸入密碼：">
+<meta name="description" content="Sublime Text 2是目前覺得最好用的文字編輯器。(subl3雖然是beta，但也越來越多人使用了)
+跟Eclipse, Aptana比起來開發前端又簡潔又快，而且有相當多的第三方套件支援。tuts+有一系列的影片介紹：Perfect Workflow in Sublime Text 2。
+Ubuntu安裝方式如下：
+1
+2
+3
+sudo add-apt-repository ppa:webupd8team/sublime-text-2
+sudo apt-get update
+sudo apt-get install sublime-text">
 
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-<meta property="og:title" content="SKY Step by Step"/>
+<meta property="og:title" content="Sublime Text 2"/>
 <meta property="og:site_name" content="小小工程師"/>
 
 
@@ -77,21 +85,68 @@
     <header>
       
         <div class="icon depth"></div>
-        <time class="depth" datetime="2013-07-02T08:06:33.000Z"><a href="/2013/07/02/sky-step-by-step/">7月 2 2013</a></time>
+        <time class="depth" datetime="2014-02-24T09:20:25.000Z"><a href="/2014/02/24/about-sublime-text-2/">2月 24 2014</a></time>
       
       
   
-    <h1 class="depth title">SKY Step by Step</h1>
+    <h1 class="depth title">Sublime Text 2</h1>
   
 
     </header>
     <div class="entry depth">
       
-        <p>這是受保護的文章，請輸入密碼：</p>
-<p><input type="password" id="pwd"> <input type="button" id="subtn" value="submit"></p>
-<p><div id="skycontent">
-</div></p>
-<script src="/javascript/sky_step_by_step.js"></script>
+        <p><a href="http://www.sublimetext.com/">Sublime Text 2</a>是目前覺得最好用的文字編輯器。(subl3雖然是beta，但也越來越多人使用了)</p>
+<p>跟Eclipse, Aptana比起來開發前端又簡潔又快，而且有相當多的第三方套件支援。tuts+有一系列的影片介紹：<a href="https://tutsplus.com/course/improve-workflow-in-sublime-text-2/">Perfect Workflow in Sublime Text 2</a>。
+Ubuntu安裝方式如下：</p>
+<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>sudo add-apt-repository ppa:webupd8team/sublime-text-2
+sudo apt-get update
+sudo apt-get install sublime-text
+</pre></td></tr></table></figure>
+
+<p><a name="more"></a>
+推薦安裝的套件有：</p>
+<ul>
+<li><a href="http://wbond.net/sublime_packages/package_control">Sublime Package Control</a>：這應該是第一個要裝的套件，有了它之後、安裝和管理套件都方便許多。</li>
+<li><a href="https://github.com/SublimeCodeIntel/SublimeCodeIntel">SublimeCodeIntel</a>：支援多種語言的自動提示功能。</li>
+<li><a href="http://emmet.io/">Emmet</a>：前身是Zen coding，對於快速產生HTML &amp; CSS提供很多的幫助。</li>
+<li><a href="https://github.com/facelessuser/BracketHighlighter">BracketHighlighter</a>：游標置於文件內的括號時，會有高亮顯示的效果，對於判斷程式碼範圍很有幫助。</li>
+<li><a href="https://github.com/jdc0589/JsFormat">JsFormat</a>：幫助javascript排版，提升可閱讀性。</li>
+<li><a href="https://github.com/dz0ny/LiveReload-sublimetext2">LiveReload</a>：可以不用重整就在瀏覽器即時顯示javascript, css的異動。在做prototype時非常方便。</li>
+<li><a href="https://github.com/tednaleid/sublime-EasyMotion">EasyMotion</a>：手不想要離開鍵盤編輯檔案的話，這是一個實用的套件。<a href="http://www.youtube.com/watch?v=CmaX23TP2XE">操作演示</a></li>
+<li><a href="https://github.com/skuroda/FindKeyConflicts">FindKeyConflicts</a>：查詢安裝的套件熱鍵是否有衝突，並列出套件支援的熱鍵。通常用來查看plugin有支援哪些快捷鍵。</li>
+<li><a href="https://github.com/titoBouzout/SideBarEnhancements">SideBarEnhancements</a>：加強side bar維護檔案的功能。必裝。</li>
+<li><a href="https://github.com/SublimeText/Open-Include">Open-Include</a>：依據路徑可以快速打開檔案。給定查詢條件搜索完相關檔案後可以一次打開多個檔案、非常便利。</li>
+<li><a href="https://github.com/kemayo/sublime-text-git">Git</a>：整合git進行版本控管。</li>
+<li><a href="https://github.com/condemil/Gist">Gist</a>：可以方便取用及維護gist。方便把樣板文件從gist拉回來。</li>
+<li><a href="https://github.com/gornostal/Modific">Modific</a>：支援Git, SVN, Bazaar and Mercurial等版本控制，會在文本中顯示即時異動部分。</li>
+<li><a href="https://github.com/xgenvn/InputHelper">InputHelper</a>：在ubuntu下的subl2要輸入中文需要安裝這個套件，mac不需要安裝即支援輸入中文。</li>
+<li><a href="https://github.com/chikatoike/IMESupport">IMESupport</a>：改善windows輸入中文時的顯示方式。</li>
+<li><a href="https://github.com/fbzhong/sublime-jslint">Sublime-jslint</a>：依據<a href="http://jslint.com/">jslint</a>檢查javascript是否遵循好的寫法。</li>
+<li><a href="https://github.com/SublimeLinter/SublimeLinter-for-ST2">SublimeLinter</a>：支援多種語言的語法檢查。</li>
+</ul>
+<p>另外還寫了一個「關閉除了現有檔案」的功能，將以下程式碼儲存為close_others.py放在Packages/User下：</p>
+<figure class="highlight lang-py"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="keyword">import</span> sublime, sublime_plugin
+
+<span class="class"><span class="keyword">class</span> <span class="title">CloseOthersCommand</span><span class="params">(sublime_plugin.TextCommand)</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self, edit)</span>:</span>
+        window = self.view.window()
+        group_index, view_index = window.get_view_index(self.view)
+        window.run_command(<span class="string">"close_others_by_index"</span>, { <span class="string">"group"</span>: group_index, <span class="string">"index"</span>: view_index})
+</pre></td></tr></table></figure>
+
+<p>然後在Default (OSX).sublime-keymap(Preference - key binding)中加入以下指令即可使用：
+ { &quot;keys&quot;: [&quot;super+shift+w&quot;], &quot;command&quot;: &quot;close_others&quot; },</p>
+
       
     </div>
     <footer>
@@ -105,7 +160,7 @@
         
   
   <div class="tags">
-    <a href="/tags/platform/">platform</a>
+    <a href="/tags/editor/">editor</a>
   </div>
 
         
